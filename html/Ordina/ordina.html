@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../img/logo-piccolo.png">
+        <title>BurgerShot - Ordina</title>
+        <link rel="stylesheet" href="../general.css">
+        <link rel="stylesheet" href="ordina.css">
+    
+
+        <script src="../modal.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="ordina.js"></script>
+        
+    </head>
+    <body>
+        <div id="container" style="background-color: #e2d6c3;">
+            <div class="header">
+                <a href="../guestPage.html" draggable="false">
+                    <img src="../img/BurgerShot-HDLogo.svg" width="180px" style="margin-top: -5px;" draggable="false">
+                </a>
+                 <a  href="#" class="Barrette" onclick="toggleMenuRidimensionato()">☰</a>
+                <nav class="navigat" style="text-align: right;">
+                    
+                    <li class="navigat"><a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a></li>
+                    <li class="navigat">
+                        <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo
+                            <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                                <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <div class="profiloTendina" id="MenuATendina" style="display: none;">
+                        <a id="Logout" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openLogout()">Logout</a>
+                        <a id="Dashboard" href="../Dashboard/dashboard.html" class="access-link" style="display: none;">Dashboard</a>
+                        <a id="idUtente" href="#" class="access-link" style="font-size: 15px;"> 00000000 </a>
+                    </div>
+                    <li class="navigat"><a href="../guestPage.html#IdContatti" class="navigat">Contatti</a></li>
+                    <li class="navigat"><a href="../Prenota/prenota.html" class="navigat">Prenota</a></li>
+                    <li class="navigat"><a href="../Ordina/ordina.html" class="navigat">Ordina</a></li>
+                    <li class="navigat"><a href="../Menu/menu.html" class="navigat">Menù</a></li>
+
+                </nav>
+                <div class="navigatRidimensionato" id="navigatRidimensionato" style="display: none;" >
+                    <a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a>
+                    <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo</a>
+                    
+                    <a href="../guestPage.html#IdContatti" class="navigat">Contatti</a>
+                    <a href="../Prenota/prenota.html" class="navigat">Prenota</a>
+                    <a href="../Ordina/ordina.html" class="navigat">Ordina</a>
+                    <a href="../Menu/menu.html" class="navigat">Menù</a>
+                </div>
+            </div>
+            
+            <div class="corpoOrdina">
+                <div class="listaOrdina">
+                    <h2>Ordina dal nostro menù</h2>
+
+                    <h3>Panini</h3>
+                
+                    <div class="flexitem">
+                        <div class="Oggetto">Hamburger $ 2.10 </div>
+                        <div class="Prezzo" style="display:none;">2.10</div>
+                        <div class="Descrizione">Panino, Insalata, Pomodoro, Hamburger</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Cheeseburger $ 2.50 </div>
+                        <div class="Prezzo" style="display:none;">2.50</div>
+                        <div class="Descrizione">Panino, Insalata, Pomodoro, Hamburger, Cheddar</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Bacon Cheeseburger $ 5.80</div>
+                        <div class="Prezzo" style="display:none;">5.80</div>
+                        <div class="Descrizione">Panino, Insalata, Pomodoro, Hamburger, Cheddar, Bacon</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Chicken Burger $ 5.40</div>
+                        <div class="Prezzo" style="display:none;">5.40</div>
+                        <div class="Descrizione">Panino, Insalata, Pomodoro, Pollo Fritto</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+
+                    <h3>Contorni</h3>
+
+                    <div class="flexitem">
+                        <div class="Oggetto">Anelli di Cipolla $ 3.40</div>
+                        <div class="Prezzo" style="display:none;">3.40</div>
+                        <div class="Descrizione">Cipolla Fritta</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Alette di Pollo $ 4.00</div>
+                        <div class="Prezzo" style="display:none;">4.00</div>
+                        <div class="Descrizione">Alette di Pollo Fritto</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Insalata Mista $ 6.60</div>
+                        <div class="Prezzo" style="display:none;">6.60</div>
+                        <div class="Descrizione">Insalta, Pomodori, Mais e Grana</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Caesar Salad $ 9.20</div>
+                        <div class="Prezzo" style="display:none;">9.20</div>
+                        <div class="Descrizione">Insalata, Pollo, Crostini, Grana, Limone</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+
+                    <h3>Bevande</h3>
+
+                    <div class="flexitem">
+                        <div class="Oggetto">Acqua $ 1.40</div>
+                        <div class="Prezzo" style="display:none;">1.40</div>
+                        <div class="Descrizione">Naturale o Gassata</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>  
+                    <div class="flexitem">
+                        <div class="Oggetto">Cola $ 3.50</div>
+                        <div class="Prezzo" style="display:none;">3.50</div>
+                        <div class="Descrizione">Bottiglia o lattina da 0,4L</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Soda $ 3.50</div>
+                        <div class="Prezzo" style="display:none;">3.50</div>
+                        <div class="Descrizione">Bottiglia o lattina da 0,4L</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Tè Freddo $ 3.50</div>
+                        <div class="Prezzo" style="display:none;">3.50</div>
+                        <div class="Descrizione">Bottiglia o lattina da 0,4L</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+
+                    <h3>Dolci</h3>
+
+                    <div class="flexitem">
+                        <div class="Oggetto">Cheesecake $ 4.10</div>
+                        <div class="Prezzo" style="display:none;">4.10</div>
+                        <div class="Descrizione">Cioccolato, Frutti di bosco, Pistacchio, Oreo</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Gelato $ 4.20</div>
+                        <div class="Prezzo" style="display:none;">4.20</div>
+                        <div class="Descrizione">Cioccolato, Crema, Caffè, Fragola, Cocco</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Milkshake $ 2.80</div>
+                        <div class="Prezzo" style="display:none;">2.80</div>
+                        <div class="Descrizione">Fragola, Oreo, Cacao</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                    <div class="flexitem">
+                        <div class="Oggetto">Ciambella $ 2.80</div>
+                        <div class="Prezzo" style="display:none;">2.80</div>
+                        <div class="Descrizione">Zucchero, Cioccolato, Tre Cioccolati, Fragola</div>
+                        <div class = "bottoni">
+                            <button class = "add"> + </button>
+                            <span class="quantity">0</span>
+                            <button class = "sub"> - </button>
+                        </div>
+                    </div>
+                
+                </div>
+            
+                <div class="riepilogo">
+                    <h4>Riepilogo Ordine</h4>
+                    <div class="corpoLista">
+                        <ul id="riepilogoLista"></ul>
+                    </div>
+                    <div class="bottone">
+                        <button id="ChkoutBtn" onclick="totalButton()">Totale: </button>
+                    </div>
+                </div>
+                
+
+            </div>
+        
+        </div>
+        <!-- Finestra modale Login -->
+        <div id="myModalLogin" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModalLogin()">&times;</span>
+                <h2>Accedi al tuo account</h2>
+                <form id="loginForm" method="post">
+                    <div class="input-group"> 
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password:</label> 
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <button class="login-button" type="submit">Accedi</button> 
+                    <div class="link-group">
+                        <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalRegister()">Registrati</a>
+                        <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalFgPsw()">Password dimenticata?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Finestra modale Register -->
+        <div id="ModalRegister" class="modal">
+            <div class="modal-content" style="margin: 10% auto;">
+                <span class="close" onclick="closeModalRegister()">&times;</span>
+                <h2>Registrati</h2>
+                <form id="registerForm" method="post">
+                    <div class="input-group">
+                            <label>Nome:</label><input type="text" id="nome" name="nome" placeholder="Mario" required>
+                            <label>Cognome: </label><input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
+                            <label>Data di Nascita: </label><input type="date" id="data" name="data" max="2010-01-01" required>
+                            <label>Username: </label><input type="text" id="usernamelog" name="usernamelog" placeholder="Username" required>
+                            <label>Password: </label><input type="password" id="passwordlog" name="passwordlog" placeholder="Password" required>
+                            <label>Domanda di sicurezza:</label> 
+                            <select id="domanda" name="domanda" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                                <option value="">Seleziona una domanda...</option> <!-- Default -->
+                                <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                                <option value="città natale">Qual è la tua città natale?</option>
+                                <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                                <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                            </select>
+                            <div id="risposta-div" style="display: none;">
+                                <label>Risposta: </label><input type="text" id="risposta" name="risposta" placeholder="Inserisci risposta" required>
+                            </div>
+                    </div>
+                    <button class="login-button" type="submit">Registrati</button>
+                    <div class="link-group">
+                        <a href="#" style="color: inherit; text-decoration: none;" data-target="#myModalLogin" data-toggle="modal" style="float: left;" onclick="closeModalRegister(); openModalLogin()">Login</a>
+                        <a href='#' style="color: inherit; text-decoration: none;" class="forgotpsw" style="float: right;" onclick="closeModalRegister(); openModalFgPsw()">Password dimenticata?</a> 
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Finestra modale Password dimenticata -->
+        <div id="ModalFgPsw" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModalFgPsw()">&times;</span>
+                <h2>Password Dimenticata</h2>
+                <form id="FgPswForm" method="post">
+                    <div class="input-group">
+                        <label>Username: </label><input type="text" id="usernamepsw" name="usernamepsw" placeholder="Username">
+                        <label>Data di Nascita:</label> <input type="date" id="datapsw" name="datapsw" required>
+                        <label>Domanda di sicurezza: </label>
+                        <select id="domandapsw" name="domandapsw" required onchange="toggleRisposta()"> 
+                            <option value="">Seleziona una domanda...</option> 
+                            <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                            <option value="città natale">Qual è la tua città natale?</option>
+                            <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                            <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                        </select> <br>
+                        <label>Risposta: </label><input type="text" id="rispostapsw" name="rispostapsw" placeholder="Inserisci risposta" required>
+                        <label>Nuova password: </label><input type="password" id="passwordfgpsw" name="passwordfgpsw" placeholder="Password" required>
+                    </div>
+                    <button class="login-button" type="submit">Reset Password</button>
+                    <div class="link-group">
+                        <a href='#' style="color: inherit; text-decoration: none;" class="registrati" style="float: left;" onclick="closeModalFgPsw(); openModalRegister()">Registrati</a> 
+                        <a href="#" style="color: inherit; text-decoration: none;" class="logn" style="float: right;" onclick="closeModalFgPsw(); openModalLogin()" >Login</a>
+                    </div>
+                        
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+

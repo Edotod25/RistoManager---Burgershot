@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../img/logo-piccolo.png">
+    <title>BurgerShot - Menu</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../general.css">
+    <link rel="stylesheet" href="menu.css">
+    <script src="../modal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>    
+    <div id="container" style="background-color: #e2d6c3;">
+        <div class="header">
+            <a href="../guestPage.html" draggable="false">
+                <img src="../img/BurgerShot-HDLogo.svg" width="180px" style="margin-top: -5px;" draggable="false">
+            </a>
+            <a  href="#" class="Barrette" onclick="toggleMenuRidimensionato()">☰</a>
+            <nav class="navigat" style="text-align: right;">
+                
+                <li class="navigat"><a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a></li>
+                <li class="navigat">
+                    <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo
+                        <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                            <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <div class="profiloTendina" id="MenuATendina" style="display: none;">
+                    <a id="Logout" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openLogout()">Logout</a>
+                    <a id="Dashboard" href="../Dashboard/dashboard.html" class="access-link" style="display: none;">Dashboard</a>
+                    <a id="idUtente" href="#" class="access-link" style="font-size: 15px;"> 00000000 </a>
+                </div>
+
+                <li class="navigat"><a href="../guestPage.html#IdContatti" class="navigat">Contatti</a></li>
+                <li class="navigat"><a href="../Prenota/prenota.html" class="navigat">Prenota</a></li>
+                <li class="navigat"><a href="../Ordina/ordina.html" class="navigat">Ordina</a></li>
+                <li class="navigat"><a href="menu.html" class="navigat">Menù</a></li>
+
+            </nav>
+            <div class="navigatRidimensionato" id="navigatRidimensionato" style="display: none;" >
+                <a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a>
+                <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo</a>
+                
+                <a href="../guestPage.html#IdContatti" class="navigat">Contatti</a>
+                <a href="../Prenota/prenota.html" class="navigat">Prenota</a>
+                <a href="../Ordina/ordina.html" class="navigat">Ordina</a>
+                <a href="menu.html" class="navigat">Menù</a>
+            </div>
+        </div>
+        
+
+        <div class="bodyMenu">
+            <h2>Il nostro menù</h2>
+            <div class="categ">
+                <h3>Panini</h3>
+                <div class="flexbox">
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Hamburger</div>
+                                    <img class="immagine" src="hamburger.png" draggable="false" width="140px" height="110px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Un succulento hamburger di manzo servito su un morbido panino con lattuga croccante, pomodoro fresco e salsa della casa.
+                                     Accompagnato da patatine fritte dorate e croccanti.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Cheeseburger</div>
+                                    <img class="immagine" src="cheeseburger.png" draggable="false" width="140px" height="120px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Un hamburger di manzo servito con una saporita fetta di cheddar su pane morbido, insalata fresca, e pomodoro. Accompagnato da patatine fritte dorate e croccanti.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Bacon cheeseburger</div>
+                                    <img class="immagine" src="baconcheeseburger.png" draggable="false" width="150px" height="105px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Il RE degli hamburger di manzo con due fette di bacon croccante e cheddar servito su un morbido panino con lattuga croccante, pomodoro fresco e salsa della casa. Accompagnato da patatine fritte dorate e croccanti.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Chicken Burger</div>
+                                    <img class="immagine" src="chickenburger.png" draggable="false" width="150px" height="150px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Un fantastico panino con 2 patty di pollo fritto servito su un pane grigliato con lattuga fresca e maionese. Accompagnato da patatine fritte dorate e croccanti.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="categ">
+                <h3>Contorni</h3>
+                <div class="flexbox">
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Anelli di Cipolla</div>
+                                    <img class="immagine" src="onionrings.png" draggable="false" width="140px" height="160px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Croccanti anelli di cipolla avvolti da un' impanatura dorata. Disponibili con Ketchup, Maionese, Salsa Piccante o Salsa BBQ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Alette di pollo</div>
+                                    <img class="immagine" src="alettepollo.png" draggable="false" width="200px" height="160px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Deliziose pepite di pollo morbido e delicato con una panatura croccante. Disponibili con Ketchup, Maionese, Salsa Piccante o Salsa BBQ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Insalata Mista</div>
+                                    <img class="immagine" src="insalatamista.png" draggable="false" width="200px" height="150px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Insalata Mista, il piatto perfetto per chi vuole un contorno da abbinare al panino! Con pomodorini, scaglie di grana, e mais.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Caesar Salad</div>
+                                    <img class="immagine" src="caesarsalad.png" draggable="false" width="165px" height="165px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Insalata leggera a base di lattuga, pollo alla piastra, crostini, scaglie di grana e succo di limone.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="categ">
+                <h3>Bevande</h3>
+                <div class="flexbox">
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Acqua</div>
+                                    <img class="immagine" src="acqua.png" draggable="false" width="100px" height="135px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Bottiglietta di acqua naturale o frizzante.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Cola</div>
+                                    <img class="immagine" src="cola.png" draggable="false" width="125px" height="140px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Bicchiere da 0.4L di cola fresca. Servita con ghiaccio</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Soda</div>
+                                    <img class="immagine" src="soda.png" draggable="false" width="150px" height="140px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Bicchiere da 0.4L di soda frizzante e rinfrescante. Disponibile anche al gusto limone!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Tè freddo</div>
+                                    <img class="immagine" src="tefreddo.png" draggable="false" width="125px" height="145px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Bicchiere da 0.4L di tè freddo. Sarai Team Limone o Team Pesca?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="categ">
+                <h3>Dolci</h3>
+                <div class="flexbox">
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Cheesecake</div>
+                                    <img class="immagine" src="cheesecake.png" draggable="false" width="140px" height="140px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Cheesecake con formaggio fresco. Gusti disponibili: Cioccolato, Frutti di Bosco, Pistacchio e Oreo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Gelati</div>
+                                    <img class="immagine" src="icecream.png" draggable="false" width="150px" height="140px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="Descrizione">Tentazione estiva per gli amanti del gelato artigianale. Disponibile in cono o coppetta. Gusti: Cioccolato, Crema, Caffè, Fragola e Cocco</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Milkshake</div>
+                                    <img class="immagine" src="milkshake.png" draggable="false" width="175px" height="140px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Deliziosi Milkshake dal gusto irresistibile! Fatto con latte fresco e un ingrediente tra Fragola, Oreo o Cacao.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containercarta">
+                        <div class="card">
+                            <div class="front">
+                                <div class="flexbox" style=" flex-direction: column;">
+                                    <div class="Oggetto">Ciambelle</div>
+                                    <img class="immagine" src="ciambelle.png" draggable="false" width="165px" height="120px">
+                                </div>
+                            </div>
+                            <div class="back">
+                                
+                                <div class="Descrizione">Ciambelle artigianali prodotte ogni mattina dai nostri pasticceri. Glasse: Zucchero, Cioccolato, 3 Cioccolati e Fragola</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Finestra modale Login -->
+    <div id="myModalLogin" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalLogin()">&times;</span>
+            <h2>Accedi al tuo account</h2>
+            <form id="loginForm" method="post">
+                <div class="input-group"> 
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label> 
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button class="login-button" type="submit">Accedi</button> 
+                <div class="link-group">
+                    <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalRegister()">Registrati</a>
+                    <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalFgPsw()">Password dimenticata?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Finestra modale Register -->
+    <div id="ModalRegister" class="modal">
+        <div class="modal-content" style="margin: 10% auto;">
+            <span class="close" onclick="closeModalRegister()">&times;</span>
+            <h2>Registrati</h2>
+            <form id="registerForm" method="post">
+                <div class="input-group">
+                        <label>Nome:</label><input type="text" id="nome" name="nome" placeholder="Mario" required>
+                        <label>Cognome: </label><input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
+                        <label>Data di Nascita: </label><input type="date" id="data" name="data" max="2010-01-01" required>
+                        <label>Username: </label><input type="text" id="usernamelog" name="usernamelog" placeholder="Username" required>
+                        <label>Password: </label><input type="password" id="passwordlog" name="passwordlog" placeholder="Password" required>
+                        <label>Domanda di sicurezza:</label> 
+                        <select id="domanda" name="domanda" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                            <option value="">Seleziona una domanda...</option> <!-- Default -->
+                            <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                            <option value="città natale">Qual è la tua città natale?</option>
+                            <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                            <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                        </select>
+                        <div id="risposta-div" style="display: none;">
+                            <label>Risposta: </label><input type="text" id="risposta" name="risposta" placeholder="Inserisci risposta" required>
+                        </div>
+                </div>
+                <button class="login-button" type="submit">Registrati</button>
+                <div class="link-group">
+                    <a href="#" style="color: inherit; text-decoration: none;" data-target="#myModalLogin" data-toggle="modal" style="float: left;" onclick="closeModalRegister(); openModalLogin()">Login</a>
+                    <a href='#' style="color: inherit; text-decoration: none;" class="forgotpsw" style="float: right;" onclick="closeModalRegister(); openModalFgPsw()">Password dimenticata?</a> 
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Finestra modale Password dimenticata -->
+    <div id="ModalFgPsw" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalFgPsw()">&times;</span>
+            <h2>Password Dimenticata</h2>
+            <form id="FgPswForm" method="post">
+                <div class="input-group">
+                    <label>Username: </label><input type="text" id="usernamepsw" name="usernamepsw" placeholder="Username">
+                    <label>Data di Nascita:</label> <input type="date" id="datapsw" name="datapsw" required>
+                    <label>Domanda di sicurezza: </label>
+                    <select id="domandapsw" name="domandapsw" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                        <option value="">Seleziona una domanda...</option> <!-- Default -->
+                        <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                        <option value="città natale">Qual è la tua città natale?</option>
+                        <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                        <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                    </select> <br>
+                    <label>Risposta: </label><input type="text" id="rispostapsw" name="rispostapsw" placeholder="Inserisci risposta" required>
+                    <label>Nuova password: </label><input type="password" id="passwordfgpsw" name="passwordfgpsw" placeholder="Password" required>
+                </div>
+                <button class="login-button" type="submit">Reset Password</button>
+                <div class="link-group">
+                    <a href='#' style="color: inherit; text-decoration: none;" class="registrati" style="float: left;" onclick="closeModalFgPsw(); openModalRegister()">Registrati</a> 
+                    <a href="#" style="color: inherit; text-decoration: none;" class="logn" style="float: right;" onclick="closeModalFgPsw(); openModalLogin()" >Login</a>
+                </div>
+                    
+            </form>
+        </div>
+    </div>
+</body>
+</html>

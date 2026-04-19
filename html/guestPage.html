@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/logo-piccolo.png">
+        <title>BurgerShot - Home</title>
+        <link rel="stylesheet" href="general.css">
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="modal.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="header">
+                <a href="guestPage.html" draggable="false">
+                    <img class="imgGrande" src="img/BurgerShot-HDLogo.svg" width="180px" style="margin-top: -5px;" draggable="false">  
+                   <!--  <img class="imgPiccola" src="logo-piccolo.png" width="68px" style="margin-top: -5px; display: none;" draggable="false"> -->
+                </a>
+                <a  href="#" class="Barrette" onclick="toggleMenuRidimensionato()">☰</a>
+                <nav class="navigat" style="text-align: right;">
+                    
+                    <li class="navigat"><a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a></li>
+                    <li class="navigat">
+                        <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo
+                            <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                                <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <div class="profiloTendina" id="MenuATendina" style="display: none;">
+                        <a id="Logout" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openLogout()">Logout</a>
+                        <a id="Dashboard" href="Dashboard/dashboard.html" class="access-link" style="display: none;">Dashboard</a>
+                        <a id="idUtente" href="#" class="access-link" style="font-size: 15px;"> 00000000 </a>
+                    </div>
+                   
+                    
+                    <li class="navigat"><a href="#IdContatti" class="navigat">Contatti</a></li>
+                    <li class="navigat"><a href="Prenota/prenota.html" class="navigat">Prenota</a></li>
+                    <li class="navigat"><a href="Ordina/ordina.html" class="navigat">Ordina</a></li>
+                    <li class="navigat"><a href="Menu/menu.html" class="navigat">Menù</a></li>
+
+                </nav>
+                <div class="navigatRidimensionato" id="navigatRidimensionato" style="display: none;" >
+                    <a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a>
+                    <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo</a>
+                    
+                    <a href="#IdContatti" class="navigat">Contatti</a>
+                    <a href="Prenota/prenota.html" class="navigat">Prenota</a>
+                    <a href="Ordina/ordina.html" class="navigat">Ordina</a>
+                    <a href="Menu/menu.html" class="navigat">Menù</a>
+                </div>
+            </div>
+            <div class="MainBlock">
+                <div class="BloccoMenu" id="IdMenu">
+                    <div class="MenuImgCont">
+                        <img src="img/Panino.png" draggable="false" alt="Errore Caricamento Immagine">
+                    </div>
+                    <div class="MenuButtonCont">
+                        <p>Esplora il nostro fantastico menù, lasciati ispirare dai panini più buoni della costa occidentale. Non potrai più farne a meno!</p>
+                        <a href="Menu/menu.html">
+                            <button class="b1">MENÙ</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="BloccoMenu" id="IdOrdina">
+                    <div class="MenuImgCont">
+                        <img src="img/ordina.png" draggable="false" alt="Errore Caricamento Immagine">
+                    </div>
+                    <div class="MenuButtonCont">
+                        <p>Ordina direttamente dal nostro sito per assicurarti la migliore qualità al miglior prezzo e vieni a ritirare il tuo ordine quando vuoi.</p>
+                        <a href="Ordina/ordina.html">
+                            <button class="b1">ORDINA</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="BloccoMenu" id="IdPrenota">
+                    <div class="MenuImgCont">
+                        <img src="img/Interno1.png" draggable="false" alt="Errore Caricamento Immagine">
+                    </div>
+                    <div class="MenuButtonCont">
+                        <p>Vieni a provare i nostri prodotti direttamente nel nostro ristorante! Non perdere l'occasione, prenota subito!.</p>
+                        <a href="Prenota/prenota.html">
+                            <button class="b1">PRENOTA</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="ContainerContatti">
+                    <div class="BloccoMenuCont" id="IdContatti">
+                        <div class="MenumapCont">
+                            <iframe src="https://gta-5-map.com?locationIds=12864" height="500px" width = "700px" onload="tornaSuDopoIlCaricamento()"></iframe>
+                        </div>
+                        <div class="MenuContactCont">
+                            <p>Telefono: <a style="color: inherit; text-decoration: none;" href="tel:33333333333"> 33333333333 </a></p>
+                            <p>Email: <a style="color: inherit; text-decoration: none;" href="mailto:info@burgershot.com">info@burgershot.com</a></p>
+                            <p>Indirizzo: <a style="color: inherit; text-decoration: none;" href="#" onclick="SetNavigatore()">San Andreas Avenue, 333</a></p>
+                            <img src="img/esternoBurger.jpg" alt="immagine burger" draggable="false" height="200px" width = "300px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- Finestra modale Login -->
+            <div id="myModalLogin" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModalLogin()">&times;</span>
+                    <h2>Accedi al tuo account</h2>
+                    <form id="loginForm" method="post">
+                        <div class="input-group"> 
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password:</label> 
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button class="login-button" type="submit">Accedi</button> 
+                        <div class="link-group">
+                            <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalRegister()">Registrati</a>
+                            <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalFgPsw()">Password dimenticata?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Finestra modale Register -->
+            <div id="ModalRegister" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModalRegister()">&times;</span>
+                    <h2>Registrati</h2>
+                    <form id="registerForm" method="post">
+                        <div class="input-group">
+                                <label>Nome:</label><input type="text" id="nome" name="nome" placeholder="Mario" required>
+                                <label>Cognome: </label><input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
+                                <label>Data di Nascita: </label><input type="date" id="data" name="data" max="2010-01-01" required>
+                                <label>Username: </label><input type="text" id="usernamelog" name="usernamelog" placeholder="Username" required>
+                                <label>Password: </label><input type="password" id="passwordlog" name="passwordlog" placeholder="Password" required>
+                                <label>Domanda di sicurezza:</label> 
+                                <select id="domanda" name="domanda" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                                    <option value="">Seleziona una domanda...</option> <!-- Default -->
+                                    <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                                    <option value="città natale">Qual è la tua città natale?</option>
+                                    <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                                    <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                                </select>
+                                <div id="risposta-div" style="display: none;">
+                                    <label>Risposta: </label><input type="text" id="risposta" name="risposta" placeholder="Inserisci risposta" required>
+                                </div>
+                        </div>
+                        <button class="login-button" type="submit">Registrati</button>
+                        <div class="link-group">
+                            <a href="#" style="color: inherit; text-decoration: none;" data-target="#myModalLogin" data-toggle="modal" style="float: left;" onclick="closeModalRegister(); openModalLogin()">Login</a>
+                            <a href='#' style="color: inherit; text-decoration: none;" class="forgotpsw" style="float: right;" onclick="closeModalRegister(); openModalFgPsw()">Password dimenticata?</a> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Finestra modale Password dimenticata -->
+            <div id="ModalFgPsw" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModalFgPsw()">&times;</span>
+                    <h2>Password Dimenticata</h2>
+                    <form id="FgPswForm" method="post">
+                        <div class="input-group">
+                            <label>Username: </label><input type="text" id="usernamepsw" name="usernamepsw" placeholder="Username">
+                            <label>Data di Nascita:</label> <input type="date" id="datapsw" name="datapsw" required>
+                            <label>Domanda di sicurezza: </label>
+                            <select id="domandapsw" name="domandapsw" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                                <option value="">Seleziona una domanda...</option> <!-- Default -->
+                                <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                                <option value="città natale">Qual è la tua città natale?</option>
+                                <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                                <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                            </select> <br>
+                            <label>Risposta: </label><input type="text" id="rispostapsw" name="rispostapsw" placeholder="Inserisci risposta" required>
+                            <label>Nuova password: </label><input type="password" id="passwordfgpsw" name="passwordfgpsw" placeholder="Password" required>
+                        </div>
+                        <button class="login-button" type="submit">Reset Password</button>
+                        <div class="link-group">
+                            <a href='#' style="color: inherit; text-decoration: none;" class="registrati" style="float: left;" onclick="closeModalFgPsw(); openModalRegister()">Registrati</a> 
+                            <a href="#" style="color: inherit; text-decoration: none;" class="logn" style="float: right;" onclick="closeModalFgPsw(); openModalLogin()" >Login</a>
+                        </div>
+                            
+                    </form>
+                </div>
+            </div>
+            <button id="scrollBtn" title="Torna in cima">⇧</button>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const container = document.getElementById("container");
+                    const scrollBtn = document.getElementById("scrollBtn");
+
+                    container.addEventListener("scroll", function() {
+                        if (container.scrollTop > 50) { 
+                            scrollBtn.style.display = "block";
+                        } else {
+                            scrollBtn.style.display = "none";
+                        }
+                    });
+
+                    
+                    scrollBtn.addEventListener("click", function() {
+                        container.scrollTop = 0;
+                    });
+                });
+            </script>
+
+        </div>
+    </body>
+</html>
+
+<script>
+    // L'iframe presente nella pagina imposta sempre il focus in maniera automatica su di esso ed essendo l'ultima cosa che viene caricata nella pagina
+    // la pagina scorre sempre in fondo per mostrarlo una volta che viene caricato. Grazie al campo onload presente sull'iframe è possibile specificare
+    // una funzione che viene chiamata quando l'iframe viene caricato (tornaSuDopoIlCaricamento()) scrolla la pagina di nuovo in cima
+    function tornaSuDopoIlCaricamento() {
+        const container = document.getElementById("container");
+        container.scrollTop = 0;
+    }
+</script>

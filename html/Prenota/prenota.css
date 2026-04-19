@@ -1,0 +1,48 @@
+@font-face { font-family: FlameSans-Regular; src: url('../flame-font/FlameRegular.otf'); } 
+      body, p {
+         font-family: FlameSans-Regular
+      }
+
+h2 {
+    margin-top: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+    color: #db0000;
+}
+
+
+.inputPren {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+
+.prenota-button {
+    width: 20vw;
+    padding: 20px;
+    margin: 25px;
+    background-color: #FF8732;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+.prenota-button:hover {
+    background-color: #e66000;
+}
+
+.pren {
+    padding-top: 30px;
+    margin-top: 30px;
+    padding: 25px;
+    font-family: Arial, sans-serif;
+}

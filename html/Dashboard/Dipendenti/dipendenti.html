@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../img/logo-piccolo.png">
+        <title>BurgerShot Dashboard - Dipendenti</title>
+        <link rel="stylesheet" href="../../general.css">
+        <link rel="stylesheet" href="../dashboard.css">
+        <link rel="stylesheet" href="dipendenti.css">
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../../modal.js"></script>
+        <script src="dipendenti.js"></script>
+    </head>
+    <body  class="collapsed">
+        <div id="container">
+            
+            <nav class="sidebar" id="Barra">
+                <div class="sidebar-top-wrapper">
+                  <div class="sidebar-top">
+                    <a href="../../guestPage.html" class="logo__wrapper" draggable="false">
+                      <img src="../../img/LogoSmall.png" alt="Logo" class="logo-small" draggable="false">
+                      <span class="hide">
+                        &nbsp BurgerShot &nbsp &nbsp
+                      </span>
+                    </a>
+                  </div>
+                  <div class="expand-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.00979 2.72L10.3565 7.06667C10.8698 7.58 10.8698 8.42 10.3565 8.93333L6.00979 13.28"
+                        stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+                
+                <div class="sidebar-links">
+                  <ul>
+                    <li>
+                      <a href="../dashboard.html" class="tooltip" draggable="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-dashboard" width="24"
+                          height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M4 4h6v8h-6z" />
+                          <path d="M4 16h6v4h-6z" />
+                          <path d="M14 12h6v8h-6z" />
+                          <path d="M14 4h6v4h-6z" />
+                        </svg>
+                        <span class="link hide">Dashboard</span>
+                        <span class="tooltip__content">Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../Ordini/ordini.html" class="tooltip" draggable="false">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <path fill-rule="evenodd" d="M5.617 2.076a1 1 0 0 1 1.09.217L8 3.586l1.293-1.293a1 1 0 0 1 1.414 0L12 3.586l1.293-1.293a1 1 0 0 1 1.414 0L16 3.586l1.293-1.293A1 1 0 0 1 19 3v18a1 1 0 0 1-1.707.707L16 20.414l-1.293 1.293a1 1 0 0 1-1.414 0L12 20.414l-1.293 1.293a1 1 0 0 1-1.414 0L8 20.414l-1.293 1.293A1 1 0 0 1 5 21V3a1 1 0 0 1 .617-.924ZM9 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H9Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                        </svg>                        
+                        <span class="link hide">Ordini</span>
+                        <span class="tooltip__content">Ordini</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../Prenotazioni/Prenotazioni.html" class="tooltip" draggable="false">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 9h6m-6 3h6m-6 3h6M6.996 9h.01m-.01 3h.01m-.01 3h.01M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+                        </svg>                        
+                        <span class="link hide">Prenotazioni</span>
+                        <span class="tooltip__content">Prenotazioni</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="dipendenti.html" class="tooltip" draggable="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-analytics" width="24"
+                          height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                          <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                          <path d="M9 17v-5" />
+                          <path d="M12 17v-1" />
+                          <path d="M15 17v-3" />
+                        </svg>
+                        <span class="link hide">Dipendenti</span>
+                        <span class="tooltip__content">Dipendenti</span>
+                      </a>
+                    </li>
+                </div>
+            </nav>
+            <div class="MainBlocco">
+              <input class="Bottone" type="checkbox" id="darkmode-toggle"/>
+              <label class="etichetta" id="SoleLuna" for="darkmode-toggle"></label>
+              <h1>Lista Dipendenti</h1>
+              
+              <div class="search-container">
+                <input class="SearchBar" type="text" id="searchBar" placeholder="Cerca dipendenti..." onkeyup="filterEmployees()">
+                <button class="add-employee-btn" onclick="addEmployee()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="#28a745" stroke-width="2" d="M12 5v14M5 12h14"/>
+                    </svg>
+                </button>
+              </div>
+              <div class="employee-list" id="employeeList">
+                  <div class="flexitem employee-item" data-name="Randy Watson" data-grade="Dipendente">
+                      <img src="https://i.ytimg.com/vi/SPNbDpfawyk/sddefault.jpg" alt="Foto Profilo" class="profile-pic">
+                      <div class="employee-info">
+                          <h3>Randy Watson</h3>
+                          <p>Grado: Manager</p>
+                      </div>
+                      <div class="employee-actions">
+                          <button class="promote-btn" onclick="promoteEmployee()">Promuovi</button>
+                          <button class="unpromote-btn" onclick="unpromoteEmployee()">Retrocedi</button>
+                          <button class="fire-btn" onclick="fireEmployee()">Licenzia</button>
+                      </div>
+                  </div>
+              </div>
+                
+            </div>
+            
+        </div>
+    </body>
+</html>

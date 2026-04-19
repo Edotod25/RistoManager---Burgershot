@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../../img/logo-piccolo.png">
+      <title>BurgerShot Dashboard - Prenotazioni</title>
+      <link rel="stylesheet" href="../../general.css">
+      <link rel="stylesheet" href="../dashboard.css">
+      <link rel="stylesheet" href="prenotazioni.css">
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="../dashboard.js"></script>
+      <script src="prenotazioni.js"></script>
+
+
+      
+  </head>
+  <body  class="collapsed">
+    <div id="container">
+        
+      <nav class="sidebar" id="Barra">
+          <div class="sidebar-top-wrapper">
+            <div class="sidebar-top">
+              <a href="../../guestPage.html" class="logo__wrapper" draggable="false">
+                <img src="../../img/LogoSmall.png" alt="Logo" class="logo-small" draggable="false">
+                <span class="hide">
+                  &nbsp BurgerShot &nbsp &nbsp
+                </span>
+              </a>
+            </div>
+            <div class="expand-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.00979 2.72L10.3565 7.06667C10.8698 7.58 10.8698 8.42 10.3565 8.93333L6.00979 13.28"
+                  stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+          
+          <div class="sidebar-links">
+            <ul>
+              <li>
+                <a href="../dashboard.html" class="tooltip" draggable="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-dashboard" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 4h6v8h-6z" />
+                    <path d="M4 16h6v4h-6z" />
+                    <path d="M14 12h6v8h-6z" />
+                    <path d="M14 4h6v4h-6z" />
+                  </svg>
+                  <span class="link hide">Dashboard</span>
+                  <span class="tooltip__content">Dashboard</span>
+                </a>
+              </li>
+              <li>
+                <a href="../Ordini/ordini.html" class="tooltip" draggable="false">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M5.617 2.076a1 1 0 0 1 1.09.217L8 3.586l1.293-1.293a1 1 0 0 1 1.414 0L12 3.586l1.293-1.293a1 1 0 0 1 1.414 0L16 3.586l1.293-1.293A1 1 0 0 1 19 3v18a1 1 0 0 1-1.707.707L16 20.414l-1.293 1.293a1 1 0 0 1-1.414 0L12 20.414l-1.293 1.293a1 1 0 0 1-1.414 0L8 20.414l-1.293 1.293A1 1 0 0 1 5 21V3a1 1 0 0 1 .617-.924ZM9 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H9Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                  </svg>                  
+                  <span class="link hide">Ordini</span>
+                  <span class="tooltip__content">Ordini</span>
+                </a>
+              </li>
+              <li>
+                <a href="Prenotazioni.html" class="tooltip" draggable="false">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 9h6m-6 3h6m-6 3h6M6.996 9h.01m-.01 3h.01m-.01 3h.01M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+                  </svg>                  
+                  <span class="link hide">Prenotazioni</span>
+                  <span class="tooltip__content">Prenotazioni</span>
+                </a>
+              </li>
+              <li class="gestioneDipendenti" id="gestioneDipendenti" style="display: none;">
+                <a href="../Dipendenti/dipendenti.html" class="tooltip" draggable="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-analytics" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                    <path d="M9 17v-5" />
+                    <path d="M12 17v-1" />
+                    <path d="M15 17v-3" />
+                  </svg>
+                  <span class="link hide">Dipendenti</span>
+                  <span class="tooltip__content">Dipendenti</span>
+                </a>
+              </li>
+          </div>
+      </nav>
+      <div class="MainBlocco Pren">
+        <input class="Bottone" type="checkbox" id="darkmode-toggle"/>
+        <label class="etichetta" id="SoleLuna" for="darkmode-toggle"></label>
+        <div class="data-selector">
+          <label for="date-input">Seleziona Data:</label>
+          <input type="date" id="date-input" name="data" class="input-date" onchange="caricaPrenotazioni(); aggiornaMappa()">
+          <input class="inputPren input-time" type="time" id="time" name="time" onchange="aggiornaMappa()">
+          <button id="cleanOldReservationsBtn" class="clean-old-reservations-btn" style="display: none;" type="button" onclick="openCleanupModal()">
+            Pulisci prenotazioni > 60 giorni
+          </button>
+        </div>
+        <div class="contenitore">
+          <div id="lista" class="lista" style="height: 57vh; ">
+            <h3 style="text-align: center; margin-top: 2%; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">LISTA PRENOTAZIONI</h3>
+            <div class="lista-prenotazioni" style="margin-top: 3%;">
+              <table id="tabellaPrenotazioni">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable(0)">Nome</th>
+                    <th onclick="sortTable(1)">Tav</th>
+                    <th onclick="sortTable(2)">Pers</th>
+                    <th onclick="sortTable(3)">Ora</th>
+                    <th>Azioni</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!-- JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="mappa" id="mappa">
+              <h2></h2>
+              <img src="../../img/MappaBurger.png" usemap="#tavoli" width="790" height="543" id="mappaImg">
+              <div class="area" id="1" style="left: 254px; top: 56px; width: 70px; height: 66px;"></div>
+              <div class="area" id="2" style="left: 455px; top: 55px; width: 73px; height: 73px;"></div>
+              <div class="area" id="3" style="left: 240px; top: 288px; width: 73px; height: 65px;"></div>
+              <div class="area" id="4" style="left: 478px; top: 286px; width: 73px; height: 71px;"></div>
+              <div class="area" id="5" style="left: 58px; top: 408px; width: 78px; height: 78px;"></div>
+              <div class="area" id="6" style="left: 660px; top: 419px; width: 74px; height: 74px;"></div>
+              <div class="area" id="7" style="left: 0px; top: 170px; width: 149px; height: 66px;"></div>
+              <div class="area" id="8" style="left: 0px; top: 290px; width: 148px; height: 65px;"></div>
+              <div class="area" id="9" style="left: 196px; top: 404px; width: 74px; height: 137px;"></div>
+              <div class="area" id="10" style="left: 526px; top: 414px; width: 69px; height: 128px;"></div>
+              <div class="area" id="11" style="left: 658px; top: 299px; width: 131px; height: 64px;"></div>
+              <div class="area" id="12" style="left: 658px; top: 183px; width: 131px; height: 66px;"></div>
+              <div class="area" id="13" style="left: 228px; top: 157px; width: 74px; height: 72px;"></div>
+              <div class="area" id="14" style="left: 484px; top: 158px; width: 76px; height: 76px;"></div>
+
+
+              <!-- <map name="tavoli">
+                <area target="" alt="Tavolo1"  href="" coords="254,55,322,120" shape="rect" id="Tavolo1" data-status="libero">
+                <area target="" alt="Tavolo2" title="Tavolo2" href="" coords="455,54,525,126" shape="rect" id="Tavolo2" data-status="libero">
+                <area target="" alt="Tavolo3" title="Tavolo3" href="" coords="240,288,313,353" shape="rect" id="Tavolo3" data-status="libero">
+                <area target="" alt="Tavolo4" title="Tavolo4" href="" coords="478,286,550,356" shape="rect" id="Tavolo4" data-status="libero">
+                <area target="" alt="Tavolo5" title="Tavolo5" href="" coords="58,409,134,484" shape="rect" id="Tavolo5" data-status="libero">
+                <area target="" alt="Tavolo6" title="Tavolo6" href="" coords="660,419,733,491" shape="rect" id="Tavolo6" data-status="libero">
+                <area target="" alt="Tavolo7" title="Tavolo7" href="" coords="0,170,148,235" shape="rect" id="Tavolo7" data-status="libero">
+                <area target="" alt="Tavolo8" title="Tavolo8" href="" coords="0,290,146,352" shape="rect" id="Tavolo8" data-status="libero">
+                <area target="" alt="Tavolo9" title="Tavolo9" href="" coords="196,404,268,541" shape="rect" id="Tavolo9" data-status="libero">
+                <area target="" alt="Tavolo10" title="Tavolo10" href="" coords="526,414,594,541" shape="rect" id="Tavolo10" data-status="libero">
+                <area target="" alt="Tavolo11" title="Tavolo11" href="" coords="658,299,788,361" shape="rect" id="Tavolo11" data-status="libero">
+                <area target="" alt="Tavolo12" title="Tavolo12" href="" coords="658,183,788,246" shape="rect" id="Tavolo12" data-status="libero">
+                <area target="" alt="Tavolo13" title="Tavolo13" href="" coords="228,157,302,229" shape="rect" id="Tavolo13" data-status="libero">
+                <area target="" alt="Tavolo14" title="Tavolo14" href="" coords="484,158,558,231" shape="rect" id="Tavolo14" data-status="libero">
+              </map> -->
+          </div>
+        </div>
+      
+    </div>
+
+      <div id="ModaleTavoli1" class="modal-table">
+        <div class="contenuto-modale" id="contenuto-modale1">
+            <span class="close" onclick="closeModalTable1()">&times;</span>
+        </div>
+      </div>
+
+      <div id="ModaleTavoli2" class="modal-table">
+        <div class="contenuto-modale" id="contenuto-modale2">
+          <span class="close" onclick="closeModalTable2()">&times;</span>
+        </div> 
+      </div>
+
+      <div id="cleanupModal" class="modal-table">
+        <div class="contenuto-modale" id="cleanupModalContent">
+          <span class="close" onclick="closeCleanupModal()">&times;</span>
+          <h2 style="margin-bottom: 14px;">Conferma pulizia DB</h2>
+          <p style="margin-bottom: 18px; line-height: 1.5;">
+            Verranno eliminate tutte le prenotazioni più vecchie di 60 giorni.
+          </p>
+          <div class="cleanup-modal-actions">
+            <button class="cleanup-confirm-btn" type="button" onclick="confermaPuliziaPrenotazioniVecchie()">Elimina</button>
+            <button class="cleanup-cancel-btn" type="button" onclick="closeCleanupModal()">Annulla</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

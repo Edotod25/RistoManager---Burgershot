@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logo-piccolo.png">
+    <title>BurgerShot - Prenota</title>
+    <link rel="stylesheet" href="../general.css">
+    <link rel="stylesheet" href="prenota.css">
+   
+
+    <!--script src="prenota.js"></script-->
+    <script src="prenota.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+</head>
+<body>
+    <div id="container" style="background-color: #e2d6c3;">
+        <div class="header">
+            <a href="../guestPage.html" draggable="false">
+                <img src="../img/BurgerShot-HDLogo.svg" width="180px" style="margin-top: -5px;" draggable="false">
+            </a>
+            <a  href="#" class="Barrette" onclick="toggleMenuRidimensionato()">☰</a>
+            <nav class="navigat" style="text-align: right;">
+                
+                <li class="navigat"><a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a></li>
+                <li class="navigat">
+                    <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo
+                        <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                            <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <div class="profiloTendina" id="MenuATendina" style="display: none;">
+                    <a id="Logout" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openLogout()">Logout</a>
+                    <a id="Dashboard" href="../Dashboard/dashboard.html" class="access-link" style="display: none;">Dashboard</a>
+                    <a id="idUtente" href="#" class="access-link" style="font-size: 15px;"> 00000000 </a>
+                </div>
+                <li class="navigat"><a href="../guestPage.html#IdContatti" class="navigat">Contatti</a></li>
+                <li class="navigat"><a href="../Prenota/prenota.html" class="navigat">Prenota</a></li>
+                <li class="navigat"><a href="../Ordina/ordina.html" class="navigat">Ordina</a></li>
+                <li class="navigat"><a href="../Menu/menu.html" class="navigat">Menù</a></li>
+
+            </nav>
+            <div class="navigatRidimensionato" id="navigatRidimensionato" style="display: none;" >
+                <a id="Accedi" href="#" data-target="#myModalLogin" data-toggle="modal" class="access-link" onclick="openModalLogin()">Accedi</a>
+                <a id="Profilo" style="display: none;" onclick="toggleProfiloTendina()">Profilo</a>
+                
+                <a href="../guestPage.html#IdContatti" class="navigat">Contatti</a>
+                <a href="../Prenota/prenota.html" class="navigat">Prenota</a>
+                <a href="../Ordina/ordina.html" class="navigat">Ordina</a>
+                <a href="../Menu/menu.html" class="navigat">Menù</a>
+            </div>
+        </div> 
+        <div class="pren">
+            <h2>Prenota un tavolo</h2>
+
+            
+            <form id="FormPrenotazione" method="post">
+                <p>
+                    Nome Prenotazione: <input class="inputPren" type="text" id="nomepren" name="nome" placeholder="Mario" required><br><br>
+                    Numero di persone: <input class="inputPren" type="number" id="numeropren" name="numero" placeholder="4" min="1" max="5" required><br><br>
+                    Data: <input class="inputPren" type="date" id="datapren" name="data" required onchange="setMinTime()" ><br><br>
+                    Ora: <input class="inputPren" type="time" id="timepren" name="time" required ><br><br>                    
+                </p>
+                <button class="prenota-button" type="submit"> Prenota </button>
+            </form>
+    
+            
+        
+        </div>
+        
+        
+
+    </div>
+    <!-- Finestra modale Login -->
+    <div id="myModalLogin" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalLogin()">&times;</span>
+            <h2>Accedi al tuo account</h2>
+            <form id="loginForm" method="post">
+                <div class="input-group"> 
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label> 
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button class="login-button" type="submit">Accedi</button> 
+                <div class="link-group">
+                    <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalRegister()">Registrati</a>
+                    <a href='#' style="color: inherit; text-decoration: none;" onclick="closeModalLogin(); openModalFgPsw()">Password dimenticata?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Finestra modale Register -->
+    <div id="ModalRegister" class="modal">
+        <div class="modal-content" style="margin: 10% auto;">
+            <span class="close" onclick="closeModalRegister()">&times;</span>
+            <h2>Registrati</h2>
+            <form id="registerForm" method="post">
+                <div class="input-group">
+                        <label>Nome:</label><input type="text" id="nome" name="nome" placeholder="Mario" required>
+                        <label>Cognome: </label><input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
+                        <label>Data di Nascita: </label><input type="date" id="data" name="data" max="2010-01-01" required>
+                        <label>Username: </label><input type="text" id="usernamelog" name="usernamelog" placeholder="Username" required>
+                        <label>Password: </label><input type="password" id="passwordlog" name="passwordlog" placeholder="Password" required>
+                        <label>Domanda di sicurezza:</label> 
+                        <select id="domanda" name="domanda" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                            <option value="">Seleziona una domanda...</option> <!-- Default -->
+                            <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                            <option value="città natale">Qual è la tua città natale?</option>
+                            <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                            <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                        </select>
+                        <div id="risposta-div" style="display: none;">
+                            <label>Risposta: </label><input type="text" id="risposta" name="risposta" placeholder="Inserisci risposta" required>
+                        </div>
+                </div>
+                <button class="login-button" type="submit">Registrati</button>
+                <div class="link-group">
+                    <a href="#" style="color: inherit; text-decoration: none;" data-target="#myModalLogin" data-toggle="modal" style="float: left;" onclick="closeModalRegister(); openModalLogin()">Login</a>
+                    <a href='#' style="color: inherit; text-decoration: none;" class="forgotpsw" style="float: right;" onclick="closeModalRegister(); openModalFgPsw()">Password dimenticata?</a> 
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Finestra modale Password dimenticata -->
+    <div id="ModalFgPsw" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalFgPsw()">&times;</span>
+            <h2>Password Dimenticata</h2>
+            <form id="FgPswForm" method="post">
+                <div class="input-group">
+                    <label>Username: </label><input type="text" id="usernamepsw" name="usernamepsw" placeholder="Username">
+                    <label>Data di Nascita:</label> <input type="date" id="datapsw" name="datapsw" required>
+                    <label>Domanda di sicurezza: </label>
+                    <select id="domandapsw" name="domandapsw" required onchange="toggleRisposta()"> <!-- Attiva cella delle risposte -->
+                        <option value="">Seleziona una domanda...</option> <!-- Default -->
+                        <option value="primo cane">Qual è il nome del tuo primo cane?</option>
+                        <option value="città natale">Qual è la tua città natale?</option>
+                        <option value="migliore amico">Chi è stato il tuo migliore amico d'infanzia?</option>
+                        <option value="scuola superiore">Qual è stato il nome della tua scuola superiore?</option>
+                    </select> <br>
+                    <label>Risposta: </label><input type="text" id="rispostapsw" name="rispostapsw" placeholder="Inserisci risposta" required>
+                    <label>Nuova password: </label><input type="password" id="passwordfgpsw" name="passwordfgpsw" placeholder="Password" required>
+                </div>
+                <button class="login-button" type="submit">Reset Password</button>
+                <div class="link-group">
+                    <a href='#' style="color: inherit; text-decoration: none;" class="registrati" style="float: left;" onclick="closeModalFgPsw(); openModalRegister()">Registrati</a> 
+                    <a href="#" style="color: inherit; text-decoration: none;" class="logn" style="float: right;" onclick="closeModalFgPsw(); openModalLogin()" >Login</a>
+                </div>
+                    
+            </form>
+        </div>
+    </div>
+    <!--button id="scrollBtn" title="Torna in cima">⇧</button-->
+</div>
+</body>
+</html>

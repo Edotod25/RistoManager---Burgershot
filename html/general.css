@@ -1,0 +1,465 @@
+@font-face { font-family: FlameSans-Bold; src: url('flame-font/FlameBold.otf'); } 
+      h2,h3,h4 {
+         font-family: FlameSans-Bold
+      }
+@font-face { font-family: FlameSans-Regular; src: url('flame-font/FlameRegular.otf'); } 
+      body {
+         font-family: FlameSans-Regular
+      }
+
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+body { 
+  /* font-family: 'Work Sans', sans-serif; */
+  background: none;
+  overflow: hidden;
+  display: flex;
+  justify-content:center;
+}
+
+.modal-content h2{
+  color: #502314;
+  font-size: 35px;
+  font-family: FlameSans-Regular
+}
+
+.modal-content p{
+  color: #502314;
+  font-size: 20px;
+  font-family: FlameSans-Regular
+}
+
+#container {
+    top: 0;
+    font-size: 20px;
+    background-color: #857f69e1;
+    width: 65vw;
+    height: 70vh;
+    border: 10px solid gray;
+    border-radius: 50px;
+    margin-top: 14vh;
+
+    
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: fixed;
+}
+#container::-webkit-scrollbar { 
+  display: none;  /* Safari e Chrome */
+}
+
+.header {
+  font-size: 20px;
+	height: 50px;
+	width: 64vw;
+  padding: 10px;
+	background: linear-gradient(180deg, rgba(145, 138, 115, 0.961) 0%, rgba(114, 107, 88, 0.94) 100%);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  z-index: 1000;
+  position: fixed;
+  
+  left: auto;
+  
+}
+
+.headimg {
+  font-size: 20px;
+	position: fixed;
+	height: auto;
+	width: auto;
+	object-fit: contain;
+}
+
+.MainBlock{
+  padding-top: 60px;
+}
+
+.b1 {
+    margin-top: auto;
+    border: none;
+    height: 5vh;
+    width: auto;
+    padding: 10px;
+    margin: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #3a8cf1c9;
+    color: #ffffff;
+    font-size: 1.5vw;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+                transform 150ms ease;
+}
+
+.b1:hover,
+.b1:focus {
+  background: #0053ba;
+}
+
+.b1:active {
+  transform: scale(0.9);
+} 
+
+.navigat {
+    display: block;
+    float: right;
+    line-height: 45px; 
+    margin-right: 5px; 
+    color: rgba(255, 255, 255, 0.96); 
+    font-family: Montserrat, Sans-serif;
+    font-size: 18px; 
+    font-weight: 600; 
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.navigat:hover {
+  color: #ffd28a;
+}
+
+.BloccoMenu {
+    display: flex;
+    
+    position: relative;
+    padding-top: 10px;
+}
+
+.MenuImgCont{
+    position: relative;
+    max-width: 20%;
+}
+
+.MenuImgCont img{
+   width: 65vw;
+   height: 65vh;
+}
+
+.MenuButtonCont {
+  height: auto;
+  width: 25%;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  position: absolute; /* Posiziona il contenitore dei pulsanti sopra l'immagine */
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffffaf;
+  border-radius: 30px;
+  padding:  0% 2% 1%;
+  padding-top: 1%;
+  text-align: center;
+  /*text-align: justify;*/
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  align-items: center;
+}
+
+.access-link {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.96);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.access-link:hover {
+  color: #ffd28a;
+  text-shadow: 0 0 10px rgba(255, 190, 102, 0.22);
+}
+
+
+.MenumapCont{
+  grid-area: b;
+  position: relative; 
+  margin-left: 15px;
+}
+.MenuContactCont{
+  padding: 25px; 
+  text-align:center; 
+  background-color: rgba(240, 248, 255, 0.553); 
+  color: black;
+  grid-area: a;
+}
+
+
+.ContainerContatti {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.BloccoMenuCont{
+  flex-grow: 1;
+  background-color: #ffffff00;
+  padding: 5px;
+  justify-content: space-evenly;
+  margin: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+  display: grid;
+  grid-template:  'a a a a b b b' 
+                  'a a a a b b b' 
+                  'a a a a b b b' /5px;
+}
+
+
+#scrollBtn {
+  display: none;
+  position: fixed;
+  font-weight: bold;
+  top: 75vh;
+  left: 77vw;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  font-size: 23px;
+  border: none;
+  outline: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#scrollBtn:hover {
+  background-color: #0056b3;
+}
+
+
+.profiloTendina {
+  display: block; 
+  position: absolute; 
+  top: 135%;
+  right: 0; 
+  background: linear-gradient(180deg, rgba(145, 138, 115, 0.98) 0%, rgba(114, 107, 88, 0.96) 100%);
+  min-width: 120px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.26);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+  z-index: 1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: max-height 0.3s ease-out;
+  font-family: Montserrat, Sans-serif;
+  font-size: 18px; 
+  font-weight: 600; 
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+
+.profiloTendina a {
+  color: rgba(255, 255, 255, 0.95);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.profiloTendina a:hover {
+  background-color: rgba(255, 255, 255, 0.09); 
+}
+
+.navigatRidimensionato {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  align-items: center;
+  max-height: 45vh;
+  overflow-y: auto;
+  position: absolute; 
+  top: 100%;
+  right: 0; 
+  margin-right: 10px;
+  background: linear-gradient(180deg, rgba(145, 138, 115, 0.98) 0%, rgba(114, 107, 88, 0.96) 100%);
+  min-width: 120px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.26);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1;
+  backdrop-filter: blur(10px);
+
+  transition: max-height 0.3s ease-out;
+  font-family: Montserrat, Sans-serif;
+  font-size: 18px; 
+  font-weight: 600; 
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+
+.navigatRidimensionato a {
+  color: rgba(255, 255, 255, 0.95);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  
+}
+
+
+.navigatRidimensionato a:hover {
+  background-color: rgba(255, 255, 255, 0.09); 
+}
+
+.Barrette {
+  color: rgba(255, 255, 255, 0.96);
+  text-decoration: none;
+  font-size: 28px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Background nero trasparente per sfumare lo sfondo quando si apre il modal */
+  z-index: 1001;
+
+}
+
+.modal-content {
+  background-color: #F5EBDC;
+  margin: 27vh auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 3.5px solid #502314;
+  width: 60%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  /*color: #502314;*/
+  font-weight: normal;
+}
+
+.close {
+  color: #747171;
+  font-size: 24px;
+  font-weight: bold;
+  float: right;
+}
+
+.close:hover,
+.close:focus {
+  color: #000; 
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  /*font-weight: bold;*/
+  font-size: 20px;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* .checkbox-group {
+  display: flex; 
+  align-items: center;
+  margin-bottom: 30px;
+  margin-left: 74%
+}
+
+.checkbox-group label {
+  margin-left: 10px;
+}
+ */
+.login-button {
+  background-color: #502314;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #38170c; /* Cambia colore al passaggio del mouse */
+}
+
+.link-group {
+  display: flex; /* Disposizione flessibile */
+  justify-content: space-between; /* Spazio tra i link */
+  font-size: 18px
+}
+
+.Barrette {
+  display: none; 
+}
+
+.navigatRidimensionato {
+  display: none;
+}
+
+/* Media query per ridimensionamento larghezza inferiore a 1050px */
+@media screen and (max-width: 1050px) {
+  .navigat {
+      display: none; 
+  }
+
+  .Barrette {
+    display: block;
+    float: right;
+    line-height: 50px; 
+    margin-right: 15px; 
+    color: white; 
+    font-family: Montserrat, Sans-serif;
+    font-size: 23px; 
+    font-weight: 600; 
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative; 
+  }
+
+ /*  .imgGrande{
+    display: none; 
+  }
+  .imgPiccola{
+    display: block !important;
+  } */
+}
+
+@media screen and (min-width: 1051px) {
+  .navigatRidimensionato {
+    display: none !important;
+  }
+}
